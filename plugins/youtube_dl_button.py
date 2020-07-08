@@ -381,7 +381,8 @@ async def youtube_dl_call_back(bot, update):
             chat_id=update.message.chat.id,
             message_id=update.message.message_id
         )
-        description = ""
+        description = "@BachehayeManoto"
+        custom_file_name = custom_file_name + ".mp4"
         if ") FullHD" in custom_file_name:
             description = "@BachehayeManoto FullHD"
         if ") HD." in custom_file_name:
@@ -577,7 +578,7 @@ async def youtube_dl_call_back(bot, update):
                     await bot.send_video(
                         chat_id=update.message.chat.id,
                         video=download_directory,
-                        caption=description,
+                        #caption=description,
                         parse_mode="HTML",
                         duration=duration,
                         width=width,
