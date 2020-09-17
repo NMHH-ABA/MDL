@@ -306,7 +306,8 @@ async def ddl_call_back(bot, update):
                     o = entity.offset
                     l = entity.length
                     youtube_dl_url = youtube_dl_url[o:o + l]
-        description = ""
+        description = "@BachehayeManoto"
+        custom_file_name = custom_file_name + ".mp4"
         if "FullHD" in custom_file_name:
             description = "@BachehayeManoto FullHD"
         if "HD" in custom_file_name:
@@ -455,7 +456,7 @@ async def ddl_call_back(bot, update):
                     await bot.send_video(
                         chat_id=update.message.chat.id,
                         video=download_directory,
-                        caption=description,
+                        #caption=description,
                         duration=duration,
                         width=width,
                         height=height,

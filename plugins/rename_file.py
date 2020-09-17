@@ -43,8 +43,15 @@ async def rename_doc(bot, update):
         return
     TRChatBase(update.from_user.id, update.text, "rename")
     if (" " in update.text) and (update.reply_to_message is not None):
-        cmd, file_name = update.text.split(" ", 1)
-        description = Translation.CUSTOM_CAPTION_UL_FILE
+        cmd, custom_file_name = update.text.split(" ", 1)
+        custom_file_name = custom_file_name + ".mp4"
+        description = "@BachehayeManoto"
+        if ") FullHD" in custom_file_name:
+            description = "@BachehayeManoto FullHD"
+        if ") HD." in custom_file_name:
+            description = "@BachehayeManoto HD"
+        if ") Mobile." in custom_file_name:
+            description = "@BachehayeManoto\nنسخه کم حجم مناسب موبایل"
         download_location = Config.DOWNLOAD_LOCATION + "/"
         a = await bot.send_message(
             chat_id=update.chat.id,
@@ -75,7 +82,7 @@ async def rename_doc(bot, update):
                     message_id=a.message_id
                 )
                 return
-            new_file_name = download_location + file_name
+            new_file_name = download_location + custom_file_name
             os.rename(the_real_download_location, new_file_name)
             await bot.edit_message_text(
                 text=Translation.UPLOAD_START,
