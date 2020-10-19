@@ -43,7 +43,8 @@ import random
 async def echo(bot, update):
     TRChatBase(update.from_user.id, update.text, "/echo")
     logger.info(update.from_user)
-    inline_keyboard([
+    inline_keyboard = []
+    inline_keyboard.append([
         pyrogram.InlineKeyboardButton(
             "720 HD",
             callback_data=("720HD").encode("UTF-8")
