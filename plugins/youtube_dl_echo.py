@@ -60,6 +60,11 @@ async def echo(bot, update):
     D = output.find("https://embed")
     E = output.find(".jpg")
     IMG = output[D:E + 4]
+    try:
+        urlretrieve(IMG,
+                    thumb_image_path)
+    except:
+        pass
     if ".mp4/playlist.m3u8" in youtube_dl_url:
         await bot.send_message(
             text="امکان دانلود این ویدیو وجود ندارد",
@@ -156,7 +161,7 @@ async def echo(bot, update):
                     height=90,
                     supports_streaming=True,
                     # reply_markup=reply_markup,
-                    thumb=IMG,
+                    thumb=thumb_image_path,
                     reply_to_message_id=update.message_id + 1,
                     progress=progress_for_pyrogram,
                     progress_args=(
