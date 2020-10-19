@@ -40,6 +40,8 @@ from helper_funcs.help_Nekmo_ffmpeg import generate_screen_shots
 import random
 from bs4 import BeautifulSoup
 import requests
+from urllib.request import urlopen
+from urllib.request import urlretrieve
 
 @pyrogram.Client.on_message(pyrogram.Filters.regex(pattern=".*http.*"))
 async def echo(bot, update):
