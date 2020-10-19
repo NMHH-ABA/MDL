@@ -60,7 +60,7 @@ async def youtube_dl_call_back(bot, update):
         chat_id=update.message.chat.id,
         message_id=update.message.message_id
     )
-    page = requests.get("intlurl")
+    page = requests.get(intlurl)
     soup = BeautifulSoup(page.content, 'html.parser')
     soupstr = str(soup)
     if "clvod" in soupstr:
