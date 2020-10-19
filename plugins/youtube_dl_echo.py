@@ -67,6 +67,11 @@ async def echo(bot, update):
             reply_to_message_id=update.message_id,
         )
     if ".smil/playlist.m3u8" in youtube_dl_url:
+        await bot.send_message(
+            text=Translation.DOWNLOAD_START,
+            chat_id=update.chat.id,
+            reply_to_message_id=update.message_id,
+        )
         description = custom_file_name
         custom_file_name = custom_file_name + ".mp4"
         tmp_directory_for_each_user = Config.DOWNLOAD_LOCATION + "/" + str(shomar)
