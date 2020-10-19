@@ -62,6 +62,8 @@ async def echo(bot, update):
     D = output.find("https://embed")
     E = output.find(".jpg")
     IMG = output[D:E + 4]
+    thumb_image_path = Config.DOWNLOAD_LOCATION + \
+                           "/" + str(shomar) + ".jpg"
     try:
         urlretrieve(IMG,
                     thumb_image_path)
