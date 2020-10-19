@@ -50,11 +50,11 @@ async def echo(bot, update):
     inline_keyboard([
         pyrogram.InlineKeyboardButton(
             "720 HD",
-            callback_data=(cb_string_video).encode("UTF-8")
+            callback_data=("720HD").encode("UTF-8")
         ),
         pyrogram.InlineKeyboardButton(
             "1080 FullHD",
-            callback_data=(cb_string_file).encode("UTF-8")
+            callback_data=("1080FullHD").encode("UTF-8")
         )
     ])
     reply_markup = pyrogram.InlineKeyboardMarkup(inline_keyboard)
