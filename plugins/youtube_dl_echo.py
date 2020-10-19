@@ -107,12 +107,12 @@ async def echo(bot, update):
         ad_string_to_replace = "please report this issue on https://yt-dl.org/bug . Make sure you are using the latest version; see  https://yt-dl.org/update  on how to update. Be sure to call youtube-dl with the --verbose flag and include its complete output."
         if e_response and ad_string_to_replace in e_response:
             error_message = e_response.replace(ad_string_to_replace, "")
-        await bot.edit_message_text(
-            chat_id=update.chat.id,
-            message_id=update.message_id + 1,
-            text=error_message
-        )
-        return False
+            await bot.edit_message_text(
+                chat_id=update.chat.id,
+                message_id=update.message_id + 1,
+                text=error_message
+            )
+            return False
         if t_response:
             # logger.info(t_response)
             end_one = datetime.now()
