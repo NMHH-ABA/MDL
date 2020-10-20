@@ -43,30 +43,38 @@ import random
 async def echo(bot, update):
     TRChatBase(update.from_user.id, update.text, "/echo")
     logger.info(update.from_user)
-    inline_keyboard = []
-    inline_keyboard.append([
-        pyrogram.InlineKeyboardButton(
-            "360P",
-            callback_data=("360P").encode("UTF-8")
-        ),
-        pyrogram.InlineKeyboardButton(
-            "480P",
-            callback_data=("480P").encode("UTF-8")
-        ),
-        pyrogram.InlineKeyboardButton(
-            "720P",
-            callback_data=("720P").encode("UTF-8")
-        ),
-        pyrogram.InlineKeyboardButton(
-            "1080P",
-            callback_data=("1080P").encode("UTF-8")
+    url = update.text
+    if "ویدیو" in url:
+        inline_keyboard = []
+        inline_keyboard.append([
+            pyrogram.InlineKeyboardButton(
+                "360P",
+                callback_data=("360P").encode("UTF-8")
+            ),
+            pyrogram.InlineKeyboardButton(
+                "480P",
+                callback_data=("480P").encode("UTF-8")
+            ),
+            pyrogram.InlineKeyboardButton(
+                "720P",
+                callback_data=("720P").encode("UTF-8")
+            ),
+            pyrogram.InlineKeyboardButton(
+                "1080P",
+                callback_data=("1080P").encode("UTF-8")
+            )
+        ])
+        reply_markup = pyrogram.InlineKeyboardMarkup(inline_keyboard)
+        await bot.send_message(
+            chat_id=update.chat.id,
+            text=Translation.FORMAT_SELECTION.format(""),
+            reply_markup=reply_markup,
+            parse_mode="html",
+            reply_to_message_id=update.message_id
         )
-    ])
-    reply_markup = pyrogram.InlineKeyboardMarkup(inline_keyboard)
-    await bot.send_message(
-        chat_id=update.chat.id,
-        text=Translation.FORMAT_SELECTION.format(""),
-        reply_markup=reply_markup,
-        parse_mode="html",
-        reply_to_message_id=update.message_id
-    )
+    else:
+        await bot.edit_message_text(
+            text="لینک ارسالی اشتباه هست",
+            chat_id=update.message.chat.id,
+            message_id=update.message.message_id
+        )
