@@ -46,14 +46,26 @@ async def echo(bot, update):
     inline_keyboard = []
     inline_keyboard.append([
         pyrogram.InlineKeyboardButton(
-            "720 HD",
-            callback_data=("720HD").encode("UTF-8")
+            "360P",
+            callback_data=("360P").encode("UTF-8")
         ),
         pyrogram.InlineKeyboardButton(
-            "1080 FullHD",
-            callback_data=("1080FullHD").encode("UTF-8")
+            "720P",
+            callback_data=("720P").encode("UTF-8")
         )
-    ])
+    ]
+    ,
+        [
+            pyrogram.InlineKeyboardButton(
+                "720P",
+                callback_data=("720P").encode("UTF-8")
+            ),
+            pyrogram.InlineKeyboardButton(
+                "1080P",
+                callback_data=("1080P").encode("UTF-8")
+            )
+        ]
+    )
     reply_markup = pyrogram.InlineKeyboardMarkup(inline_keyboard)
     await bot.send_message(
         chat_id=update.chat.id,
