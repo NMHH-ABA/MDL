@@ -44,7 +44,7 @@ async def echo(bot, update):
     TRChatBase(update.from_user.id, update.text, "/echo")
     logger.info(update.from_user)
     url = update.text
-    if "ویدیو" in url:
+    if "/ویدیو/" or "/%D9%88%DB%8C%D8%AF%DB%8C%D9%88/" in url:
         inline_keyboard = []
         inline_keyboard.append([
             pyrogram.InlineKeyboardButton(
