@@ -38,13 +38,15 @@ from PIL import Image
 from helper_funcs.help_Nekmo_ffmpeg import generate_screen_shots
 
 import random
+from urllib.parse import unquote
 
 @pyrogram.Client.on_message(pyrogram.Filters.regex(pattern=".*http.*"))
 async def echo(bot, update):
     TRChatBase(update.from_user.id, update.text, "/echo")
     logger.info(update.from_user)
     url = update.text
-    if "/ویدیو/" or "/%D9%88%DB%8C%D8%AF%DB%8C%D9%88/" in url:
+    url = unquote(url)
+    if "/ویدیو/" in url:
         inline_keyboard = []
         inline_keyboard.append([
             pyrogram.InlineKeyboardButton(
