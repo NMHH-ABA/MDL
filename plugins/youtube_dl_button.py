@@ -80,7 +80,7 @@ async def youtube_dl_call_back(bot, update):
         E = output.find(".jpg")
         IMG = output[D:E + 4]
 
-    if "https://embed.kwikmotion.com" in soupstr:
+    if "https://embed.kwikmotion.com/Embed/" in soupstr:
         first = soup.find(class_="main-container container-fluid")
         second = str(first.find(class_="region region-content"))
         # print(second)
