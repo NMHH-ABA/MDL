@@ -112,7 +112,7 @@ async def youtube_dl_call_back(bot, update):
         )
     if "smil/playlist.m3u8" in youtube_dl_url:
         tg_send_type = "video"
-        description = custom_file_name
+        description = "@iranintldlbot\n" + custom_file_name
         custom_file_name = custom_file_name + ".mp4"
         tmp_directory_for_each_user = Config.DOWNLOAD_LOCATION + "/" + str(shomar)
         if not os.path.isdir(tmp_directory_for_each_user):
@@ -267,7 +267,7 @@ async def youtube_dl_call_back(bot, update):
                     await bot.send_video(
                         chat_id=update.message.chat.id,
                         video=download_directory,
-                        #caption=description,
+                        caption=description,
                         parse_mode="HTML",
                         duration=duration,
                         width=width,
