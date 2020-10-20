@@ -50,22 +50,18 @@ async def echo(bot, update):
             callback_data=("360P").encode("UTF-8")
         ),
         pyrogram.InlineKeyboardButton(
+            "480P",
+            callback_data=("480P").encode("UTF-8")
+        ),
+        pyrogram.InlineKeyboardButton(
             "720P",
             callback_data=("720P").encode("UTF-8")
+        ),
+        pyrogram.InlineKeyboardButton(
+            "1080P",
+            callback_data=("1080P").encode("UTF-8")
         )
-    ]
-    ,
-        [
-            pyrogram.InlineKeyboardButton(
-                "720P",
-                callback_data=("720P").encode("UTF-8")
-            ),
-            pyrogram.InlineKeyboardButton(
-                "1080P",
-                callback_data=("1080P").encode("UTF-8")
-            )
-        ]
-    )
+    ])
     reply_markup = pyrogram.InlineKeyboardMarkup(inline_keyboard)
     await bot.send_message(
         chat_id=update.chat.id,
