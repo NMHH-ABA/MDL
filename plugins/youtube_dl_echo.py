@@ -73,8 +73,8 @@ async def echo(bot, update):
             reply_to_message_id=update.message_id
         )
     else:
-        await bot.edit_message_text(
+        await bot.send_message(
             text="لینک ارسالی اشتباه هست",
-            chat_id=update.message.chat.id,
-            message_id=update.message.message_id
+            chat_id=update.chat.id,
+            reply_to_message_id=update.message_id
         )
