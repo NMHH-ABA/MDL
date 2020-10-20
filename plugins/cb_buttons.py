@@ -40,8 +40,12 @@ from PIL import Image
 async def button(bot, update):
     logger.info(update)
     cb_data = update.data
-    if "720HD" in cb_data:
+    if "360P" in cb_data:
         await youtube_dl_call_back(bot, update)
-    if "1080FullHD" in cb_data:
+    if "480P" in cb_data:
+        await youtube_dl_call_back(bot, update)
+    if "720P" in cb_data:
+        await youtube_dl_call_back(bot, update)
+    if "1080P" in cb_data:
         await youtube_dl_call_back(bot, update)
 
