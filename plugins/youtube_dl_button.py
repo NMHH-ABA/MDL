@@ -299,9 +299,3 @@ async def youtube_dl_call_back(bot, update):
                     message_id=update.message.message_id,
                     disable_web_page_preview=True
                 )
-    else:
-        await bot.edit_message_text(
-            text="لینک ارسالی اشتباه هست",
-            chat_id=update.message.chat.id,
-            message_id=update.message.message_id
-        )
