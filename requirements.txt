@@ -6,7 +6,6 @@ numpy
 Pillow
 pyrogram
 asyncio
-asyncio-dev
 requests
 tgcrypto
 youtube-dl
